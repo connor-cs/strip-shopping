@@ -1,4 +1,3 @@
-
 import { Button, Container, Navbar, Modal } from "react-bootstrap";
 
 export default function Nav() {
