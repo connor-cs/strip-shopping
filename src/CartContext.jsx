@@ -75,6 +75,7 @@ export function CartProvider({ children }) {
     deleteFromCart,
     getTotalCost,
   };
+  
   return (
     <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
