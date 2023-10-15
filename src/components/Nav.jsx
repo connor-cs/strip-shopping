@@ -18,6 +18,9 @@ export default function Nav() {
     return total;
   }
 
+  const total = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+  console.log(total)
+
   return (
     <>
       <Navbar expand="sm">
@@ -32,7 +35,17 @@ export default function Nav() {
           <Modal.Title>Shopping Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h1>This is the body</h1>
+          {total > 0 ? 
+            <>
+              <p>Items in your cart:</p>
+              {cart.items.map((item) => (
+                <h1 key={item.id}>{item.title}</h1>
+              ))}
+              <h1>Total: ${cart.getTotalCost()}</h1>
+            </>
+           : 
+            <p>nothing in your cart</p>
+          }
         </Modal.Body>
       </Modal>
     </>

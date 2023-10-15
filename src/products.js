@@ -1,22 +1,22 @@
 export const products = [
   {
     id: "1",
-    name: "coffee",
+    title: "coffee",
     price: "4"
   },
   {
     id: "2",
-    name: "book",
+    title: "book",
     price: "20"
   },
   {
     id: "3",
-    name: "cat",
+    title: "cat",
     price: "50"
   },
   {
     id: "4",
-    name: "car",
+    title: "car",
     price: "20000"
   },
 ]

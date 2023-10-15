@@ -23,8 +23,13 @@ export function CartProvider({ children }) {
 
   function addOneToCart(id) {
     const quantity = getProductQuantity(id);
+    const data = getProductData(id);
+    const prodName = data.title;
     if (quantity === 0) {
-      setCartProducts([...cartProducts, { id: id, quantity: 1 }]);
+      setCartProducts([
+        ...cartProducts,
+        { id: id, quantity: 1, title: prodName },
+      ]);
     } else {
       setCartProducts(
         cartProducts.map((product) =>
@@ -75,7 +80,7 @@ export function CartProvider({ children }) {
     deleteFromCart,
     getTotalCost,
   };
-  
+
   return (
     <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
