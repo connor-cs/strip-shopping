@@ -1,6 +1,7 @@
 import { Button, Container, Navbar, Modal } from "react-bootstrap";
 import { useState, useContext } from "react";
 import { CartContext } from "../CartContext";
+import CartProduct from "./CartProduct";
 
 export default function Nav() {
   const [show, setShow] = useState(false);
@@ -19,7 +20,6 @@ export default function Nav() {
   }
 
   const total = cart.items.reduce((sum, item) => sum + item.quantity, 0);
-  console.log(total)
 
   return (
     <>
@@ -35,17 +35,17 @@ export default function Nav() {
           <Modal.Title>Shopping Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {total > 0 ? 
+          {total > 0 ? (
             <>
               <p>Items in your cart:</p>
               {cart.items.map((item) => (
-                <h1 key={item.id}>{item.title}</h1>
+                <CartProduct product={item} />
               ))}
               <h1>Total: ${cart.getTotalCost()}</h1>
             </>
-           : 
+          ) : (
             <p>nothing in your cart</p>
-          }
+          )}
         </Modal.Body>
       </Modal>
     </>
