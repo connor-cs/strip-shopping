@@ -8,7 +8,7 @@ const CartProduct = ({ product }) => {
   const data = getProductData(product.id);
   const price = data.price;
   const subtotal = parseInt(product.quantity) * parseInt(price);
-  //
+  
 
   return (
     <div key={product.id} className="d-flex justify-content-between">
